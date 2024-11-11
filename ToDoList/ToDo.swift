@@ -14,6 +14,7 @@ struct ToDo {
 	var hasWatched: Bool
 	var watchedOnDate: Date?
 	var review: String
+	var rating: Double
 	var watchByDate: Date
 }
 

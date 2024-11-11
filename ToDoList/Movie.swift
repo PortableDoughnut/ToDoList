@@ -13,6 +13,7 @@ struct Movie {
 	var title: String
 	var description: String
 	var poster: UIImage
+	var releaseYear: Int
 }
 
 extension Movie: Equatable {
