@@ -20,11 +20,12 @@ class ToDoTableViewCell: UITableViewCell {
 	@IBOutlet weak var starFourImage: UIImageView!
 	@IBOutlet weak var starFiveImage: UIImageView!
 	
-	
+	let starLogic: StarLogicController = StarLogicController()
 	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+		starLogic.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,6 +33,22 @@ class ToDoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+	
+	func configure(with toDo: ToDo) {
+		moviePosterImage.image = toDo.movie.poster
+		movieTitleLabel.text = toDo.movie.title
+		movieReleaseYearLabel.text = toDo.movie.releaseYear.description
+		switch toDo.hasWatched {
+			case true:
+			watchStatusImage.image = UIImage(systemName: "checkmark.circle.fill")
+			watchDateLabel.text = toDo.watchedOnDate?.formatted()
+		case false:
+			watchStatusImage.image = UIImage(systemName: "circle")
+			watchDateLabel.text = toDo.watchByDate.formatted()
+		}
+		starLogic.setStar(toDo, starArray: [starOneImage.image!, starTwoImage.image!, starThreeImage.image!, starFourImage.image!, starFiveImage.image!])
+		
+	}
     
 }
 
