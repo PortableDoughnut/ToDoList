@@ -16,18 +16,19 @@ class StarLogicController {
 	weak var delegate: StarSetterDelegate?
 	
 	func setStar(_ toDo: ToDo, starArray: [UIImage]) {
+		guard let rating = toDo.rating else { return }
 		var localStarArray: [UIImage] = starArray
 		
-		for star in starArray {
-			if toDo.rating == floor(toDo.rating) {
-				for index in 0...Int(toDo.rating) {
-					localStarArray[index - 1] = UIImage(systemName: "star.fill")!
+		for _ in localStarArray {
+			if rating == floor(rating) {
+				for index in 0..<Int(rating) {
+					localStarArray[index] = UIImage(systemName: "star.fill")!
 				}
 			} else {
-				for index in 0...Int(floor(toDo.rating)) {
-					localStarArray[index - 1] = UIImage(systemName: "star.fill")!
+				for index in 0..<Int(floor(rating)) {
+					localStarArray[index] = UIImage(systemName: "star.fill")!
 				}
-				localStarArray[Int(floor(toDo.rating))] = UIImage(systemName: "star.leadinghalf.filled")!
+				localStarArray[Int(rating)] = UIImage(systemName: "star.leadinghalf.filled")!
 			}
 		}
 		

@@ -24,14 +24,11 @@ class ToDoTableViewCell: UITableViewCell {
 	
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
 		starLogic.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 	
 	func configure(with toDo: ToDo) {
@@ -41,12 +38,28 @@ class ToDoTableViewCell: UITableViewCell {
 		switch toDo.hasWatched {
 			case true:
 			watchStatusImage.image = UIImage(systemName: "checkmark.circle.fill")
-			watchDateLabel.text = toDo.watchedOnDate?.formatted()
+			watchDateLabel.text = toDo.watchedOnDate?.formatted(
+				.dateTime
+					.month(.abbreviated)
+					.day()
+					.year(.defaultDigits)
+					.hour())
+			?? "No Date Set"
 		case false:
 			watchStatusImage.image = UIImage(systemName: "circle")
-			watchDateLabel.text = toDo.watchByDate.formatted()
+			watchDateLabel.text = toDo.watchByDate?
+				.formatted(.dateTime
+					.month(.abbreviated)
+					.day()
+					.year(.defaultDigits)
+					.hour())
+			?? "No Date Set"
 		}
-		starLogic.setStar(toDo, starArray: [starOneImage.image!, starTwoImage.image!, starThreeImage.image!, starFourImage.image!, starFiveImage.image!])
+		starLogic.setStar(toDo, starArray: [starOneImage.image ?? UIImage(),
+											starTwoImage.image ?? UIImage(),
+											starThreeImage.image ?? UIImage(),
+											starFourImage.image ?? UIImage(),
+											starFiveImage.image ?? UIImage()])
 		
 	}
     
