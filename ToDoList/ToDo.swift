@@ -96,7 +96,7 @@ struct ToDo {
 			}
 		}
 		
-		guard movies.count == toDoMovies.count else {
+		guard movies.count == movieDates.count else {
 			print("Error with movie count")
 			return []
 		}
