@@ -33,7 +33,7 @@
                             <outlet property="delegate" destination="wb3-fI-P6A" id="Fi9-2G-frR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Movies to Watch" largeTitleDisplayMode="always" id="mlU-ah-WRZ"/>
+                    <navigationItem key="navigationItem" title="Movies to Watch" id="mlU-ah-WRZ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wcn-m1-Lei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,9 +64,10 @@
             <point key="canvasLocation" x="1070.9923664122136" y="-75.352112676056336"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.96862745100000003" green="0.098039215690000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <namedColor name="Background">
-            <color red="0.99999994039535522" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Text">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

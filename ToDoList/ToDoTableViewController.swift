@@ -13,17 +13,23 @@ class ToDoTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 		self.navigationItem.leftBarButtonItem = self.editButtonItem
 		
 		let movieToDoCell: UINib = .init(nibName: "ToDoTableViewCell", bundle: nil)
 		tableView.register(movieToDoCell, forCellReuseIdentifier: "ToDoMovieCell")
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(applyTheme), name: .themeChanged, object: nil)
     }
 
+	@objc func applyTheme() {
+		let isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+		view.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
+	}
+	
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
+	
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {	1	}
