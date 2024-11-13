@@ -42,8 +42,7 @@ class ToDoTableViewCell: UITableViewCell {
 				.dateTime
 					.month(.abbreviated)
 					.day()
-					.year(.defaultDigits)
-					.hour())
+					.year(.defaultDigits))
 			?? "No Date Set"
 		case false:
 			watchStatusImage.image = UIImage(systemName: "circle")
@@ -51,8 +50,7 @@ class ToDoTableViewCell: UITableViewCell {
 				.formatted(.dateTime
 					.month(.abbreviated)
 					.day()
-					.year(.defaultDigits)
-					.hour())
+					.year(.defaultDigits))
 			?? "No Date Set"
 		}
 		starLogic.setStar(toDo, starArray: [starOneImage.image ?? UIImage(),
