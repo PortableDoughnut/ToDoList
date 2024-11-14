@@ -178,6 +178,16 @@ Error mapping movies:
 		self.rating = rating
 		watchByDate = nil
 	}
+	
+	init(movie: Movie, watchByDate: Date, hasWatched: Bool) throws {
+		id = UUID()
+		self.movie = movie
+		self.hasWatched = hasWatched
+		watchedOnDate = nil
+		review = nil
+		rating = nil
+		self.watchByDate = watchByDate
+	}
 }
 
 extension ToDo: Equatable {
