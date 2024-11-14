@@ -9,15 +9,24 @@ import UIKit
 
 class ToDoTableViewController: UITableViewController {
 	
-	var ToDos: [ToDo] = []
+	var toDos: [ToDo] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.navigationItem.leftBarButtonItem = self.editButtonItem
 		
+		///Loading the data set
+		if let savedToDos = ToDo.loadToDos() {
+			toDos = savedToDos
+		} else {
+			toDos = ToDo.loadToDos()!
+		}
+		
+		///Regestering the table view cell
 		let movieToDoCell: UINib = .init(nibName: "ToDoTableViewCell", bundle: nil)
 		tableView.register(movieToDoCell, forCellReuseIdentifier: "ToDoMovieCell")
 		
+		///Dark  Mode Logic
 		NotificationCenter.default.addObserver(self, selector: #selector(applyTheme), name: .themeChanged, object: nil)
     }
 
@@ -36,14 +45,14 @@ class ToDoTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-		toDoList.count
+		toDos.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoMovieCell", for: indexPath) as? ToDoTableViewCell else {	return UITableViewCell()	}
 
         // Configure the cell...
-		cell.configure(with: toDoList[indexPath.row])
+		cell.configure(with: toDos[indexPath.row])
 		print("\(String(describing: cell.movieTitleLabel.text))")
 
         return cell
