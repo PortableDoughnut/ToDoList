@@ -24,5 +24,11 @@ class GenericMovieTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+	
+	func configure(with movie: Movie) {
+		movieTitleLabel.text = movie.title
+		releaseYearLabel.text = movie.releaseYear.description
+		posterImage.image = movie.poster
+	}
 
 }

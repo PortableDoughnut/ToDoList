@@ -151,27 +151,32 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FZK-XM-TgJ">
-                                        <rect key="frame" x="0.0" y="523.33333206176758" width="393" height="58"/>
+                                        <rect key="frame" x="0.0" y="523.33333206176758" width="393" height="82.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FZK-XM-TgJ" id="Bs2-Ef-qnT">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="82.333335876464844"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q27-OE-T9t">
-                                                    <rect key="frame" x="16" y="4" width="361" height="50"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Abq-8s-L56">
+                                                    <rect key="frame" x="16" y="4" width="361" height="74.333333333333329"/>
                                                     <subviews>
-                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="GWi-V9-dE6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
-                                                            <color key="backgroundColor" name="Background"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeJ-vd-UZP">
+                                                            <rect key="frame" x="145" y="0.0" width="71.333333333333314" height="20.333333333333332"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" name="Text"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="M2p-B5-Q6f">
+                                                            <rect key="frame" x="0.0" y="24.333333333333329" width="361" height="50"/>
                                                         </datePicker>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="q27-OE-T9t" secondAttribute="bottom" constant="4" id="DBA-nX-JrT"/>
-                                                <constraint firstItem="q27-OE-T9t" firstAttribute="leading" secondItem="Bs2-Ef-qnT" secondAttribute="leading" constant="16" id="NGG-3W-mfM"/>
-                                                <constraint firstAttribute="trailing" secondItem="q27-OE-T9t" secondAttribute="trailing" constant="16" id="P8H-F4-aJR"/>
-                                                <constraint firstItem="q27-OE-T9t" firstAttribute="top" secondItem="Bs2-Ef-qnT" secondAttribute="top" constant="4" id="PLn-a8-eXS"/>
+                                                <constraint firstAttribute="bottom" secondItem="Abq-8s-L56" secondAttribute="bottom" constant="4" id="GOC-ze-nDJ"/>
+                                                <constraint firstItem="Abq-8s-L56" firstAttribute="leading" secondItem="Bs2-Ef-qnT" secondAttribute="leading" constant="16" id="I2F-5u-iSF"/>
+                                                <constraint firstItem="Abq-8s-L56" firstAttribute="top" secondItem="Bs2-Ef-qnT" secondAttribute="top" constant="4" id="hfC-mC-KnU"/>
+                                                <constraint firstAttribute="trailing" secondItem="Abq-8s-L56" secondAttribute="trailing" constant="16" id="o3g-QW-usq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -195,7 +200,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJY-Qi-52a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="tC0-Xa-Lof" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3260" y="-427"/>
+            <point key="canvasLocation" x="3258.7786259541986" y="-427.46478873239437"/>
         </scene>
         <!--Select Movie Table View Controller-->
         <scene sceneID="WCU-0e-QFn">
@@ -206,7 +211,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5mc-gI-QCn" customClass="GenericMovieTableViewCell" customModule="ToDoList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GenericMovieCell" id="5mc-gI-QCn" customClass="GenericMovieTableViewCell" customModule="ToDoList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="109"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5mc-gI-QCn" id="tkV-PG-UId">
@@ -317,8 +322,6 @@
         <!--Add Movie-->
         <scene sceneID="zyC-MP-A4h">
             <objects>
-                <exit id="dGi-w3-anW" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RW5-QP-bJF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="AddMovieScene" id="SV1-q2-rMZ" customClass="AddMovieTableViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="MW1-lD-sJb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -453,6 +456,8 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <exit id="dGi-w3-anW" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RW5-QP-bJF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3260" y="280"/>
         </scene>
