@@ -86,6 +86,50 @@ class ToDoTableViewController: UITableViewController {
 		toDos.swapAt(fromIndexPath.row, to.row)
 		tableView.reloadData()
     }
+	
+	@IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+		let alertController = UIAlertController(
+			title: "Choose add type",
+			message: "What do you want to add?",
+			preferredStyle: .actionSheet
+		)
+		
+		let addMovie: UIAlertAction = .init(title: "Movie", style: .default) {
+			_ in
+			self.showAddMovie()
+		}
+		
+		let addWatchlist: UIAlertAction = .init(title: "Watchlist Item", style: .default) {
+			_ in
+			self.showAddWatchlist()
+		}
+		
+		let cancel: UIAlertAction = .init(title: "Cancel", style: .cancel, handler: nil)
+		
+		alertController.addAction(addMovie)
+		alertController.addAction(addWatchlist)
+		alertController.addAction(cancel)
+		
+		present(alertController, animated: true, completion: nil)
+	}
+	
+	func showAddMovie() {
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		
+		if let addMovieTableViewController = storyboard.instantiateViewController(withIdentifier: "AddMovieScene") as? AddMovieTableViewController {
+			let addMovieNavigationController: UINavigationController = .init(rootViewController: addMovieTableViewController)
+			present(addMovieNavigationController, animated: true, completion: nil)
+		}
+	}
+	
+	func showAddWatchlist() {
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		
+		if let addWatchlistTableViewController = storyboard.instantiateViewController(withIdentifier: "AddWatchlistScene") as? AddWatchlistTableViewController {
+			let addWatchlistNavigationController: UINavigationController = .init(rootViewController: addWatchlistTableViewController)
+			present(addWatchlistNavigationController, animated: true, completion: nil)
+		}
+	}
 
     /*
     // MARK: - Navigation

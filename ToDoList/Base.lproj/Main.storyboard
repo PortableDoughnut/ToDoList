@@ -37,7 +37,7 @@
                     <navigationItem key="navigationItem" title="Movies to Watch" id="mlU-ah-WRZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CuX-j9-UIt">
                             <connections>
-                                <segue destination="q95-HI-v4b" kind="presentation" id="kli-aC-9FD"/>
+                                <action selector="addButtonTapped:" destination="wb3-fI-P6A" id="jh4-Xx-gPZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -46,12 +46,12 @@
             </objects>
             <point key="canvasLocation" x="1810" y="-75"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Add Watchlist Item-->
         <scene sceneID="WpC-VX-IHS">
             <objects>
-                <tableViewController id="Aq7-ln-v2R" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddWatchlistScene" id="Aq7-ln-v2R" customClass="AddWatchlistTableViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="cQO-3G-I4p">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -69,11 +69,11 @@
                             <outlet property="delegate" destination="Aq7-ln-v2R" id="rs8-7q-iWr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="7sb-63-9cU"/>
+                    <navigationItem key="navigationItem" title="Add Watchlist Item" id="7sb-63-9cU"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJY-Qi-52a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3254" y="-75"/>
+            <point key="canvasLocation" x="3260" y="-427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l84-UV-ngh">
@@ -105,8 +105,14 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q95-HI-v4b" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EtK-Hn-6PX">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="Text"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="Text"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -115,7 +121,57 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMc-uy-y9c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2526" y="-75"/>
+            <point key="canvasLocation" x="2534" y="-427"/>
+        </scene>
+        <!--Add Movie-->
+        <scene sceneID="zyC-MP-A4h">
+            <objects>
+                <tableViewController storyboardIdentifier="AddMovieScene" id="SV1-q2-rMZ" customClass="AddMovieTableViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="MW1-lD-sJb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iQi-cA-Akq">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iQi-cA-Akq" id="lo6-2x-Ixr">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="SV1-q2-rMZ" id="EL4-ZN-rab"/>
+                            <outlet property="delegate" destination="SV1-q2-rMZ" id="D1p-NC-dIj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Movie" id="uUi-0Y-QCT"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RW5-QP-bJF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3260" y="280"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1zw-iU-HGY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kk3-aS-yhO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PuN-pW-QRA">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="Text"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SV1-q2-rMZ" kind="relationship" relationship="rootViewController" id="BVt-PK-R7h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="808-tD-G0a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2534" y="280"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.96862745100000003" green="0.098039215690000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
