@@ -128,7 +128,7 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ea-D1-2hj" userLabel="Poster">
                                                             <rect key="frame" x="80.666666666666686" y="0.0" width="200" height="300"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="cSc-YN-xnG"/>
+                                                                <constraint firstAttribute="width" constant="200" id="cSc-YN-xnG"/>
                                                                 <constraint firstAttribute="width" secondItem="0ea-D1-2hj" secondAttribute="height" multiplier="2:3" id="dNu-Dw-kqt"/>
                                                             </constraints>
                                                         </imageView>
@@ -196,6 +196,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chosenMoviePosterImageView" destination="0ea-D1-2hj" id="ZH0-uJ-8Io"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJY-Qi-52a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="tC0-Xa-Lof" userLabel="Exit" sceneMemberID="exit"/>
@@ -255,7 +258,7 @@
                                     <outlet property="movieTitleLabel" destination="bH5-EM-yvL" id="ZfZ-yX-CKh"/>
                                     <outlet property="posterImage" destination="xch-Mh-VrD" id="hIk-EW-SfZ"/>
                                     <outlet property="releaseYearLabel" destination="pTN-Se-R4J" id="Bvq-8p-Qdp"/>
-                                    <segue destination="XjR-8H-AzI" kind="unwind" unwindAction="unwindToAddWatchlist:" id="G9h-4b-wFT"/>
+                                    <segue destination="XjR-8H-AzI" kind="unwind" unwindAction="unwindToAddWatchlist:" id="kfg-ij-WoQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

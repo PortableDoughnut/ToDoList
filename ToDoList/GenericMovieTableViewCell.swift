@@ -12,7 +12,7 @@ class GenericMovieTableViewCell: UITableViewCell {
 	@IBOutlet weak var movieTitleLabel: UILabel!
 	@IBOutlet weak var releaseYearLabel: UILabel!
 	
-	
+	var movie: Movie?
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +29,7 @@ class GenericMovieTableViewCell: UITableViewCell {
 		movieTitleLabel.text = movie.title
 		releaseYearLabel.text = movie.releaseYear.description
 		posterImage.image = movie.poster
+		self.movie = movie
 	}
 
 }

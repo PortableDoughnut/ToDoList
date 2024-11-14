@@ -9,7 +9,8 @@ import UIKit
 
 class SelectMovieTableViewController: UITableViewController {
 	
-	var moviesArray: [Movie] = movies.sorted()
+	var moviesArray: [Movie] = Movie.loadMovies().sorted()
+	var selectedMovie: Movie?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ class SelectMovieTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-		return movies.count
+		return moviesArray.count
     }
 	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,6 +35,18 @@ class SelectMovieTableViewController: UITableViewController {
 
         return cell
     }
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		guard let destination = segue.destination as? AddWatchlistTableViewController,
+			  let senderCell = sender as? GenericMovieTableViewCell
+		else { return }
+		
+		selectedMovie = senderCell.movie
+		print("Selected Movie: \(selectedMovie?.title ?? "Error")")
+	}
 
     /*
     // Override to support conditional editing of the table view.
