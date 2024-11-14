@@ -45,13 +45,15 @@ class ToDoTableViewCell: UITableViewCell {
 					.year(.defaultDigits))
 			?? "No Date Set"
 		case false:
-			watchStatusImage.image = UIImage(systemName: "circle")
-			watchDateLabel.text = toDo.watchByDate?
+			let formattedWatchByDate: String = toDo.watchByDate?
 				.formatted(.dateTime
 					.month(.abbreviated)
 					.day()
 					.year(.defaultDigits))
 			?? "No Date Set"
+			
+			watchStatusImage.image = UIImage()
+			watchDateLabel.text = "Watch by \(formattedWatchByDate)"
 		}
 		starLogic.setStar(toDo, starArray: [starOneImage.image ?? UIImage(),
 											starTwoImage.image ?? UIImage(),

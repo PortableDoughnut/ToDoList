@@ -74,7 +74,7 @@ class ToDoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-			toDoList.remove(at: indexPath.row)
+			toDos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -83,7 +83,7 @@ class ToDoTableViewController: UITableViewController {
 	
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-		toDoList.swapAt(fromIndexPath.row, to.row)
+		toDos.swapAt(fromIndexPath.row, to.row)
 		tableView.reloadData()
     }
 
