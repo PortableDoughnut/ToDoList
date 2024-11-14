@@ -1,27 +1,32 @@
 //
-//  AddWatchlistTableViewController.swift
+//  SeleectMovieTableViewController.swift
 //  ToDoList
 //
-//  Created by Gwen Thelin on 11/13/24.
+//  Created by Gwen Thelin on 11/14/24.
 //
 
 import UIKit
 
-class AddWatchlistTableViewController: UITableViewController {
+class SelectMovieTableViewController: UITableViewController {
 
+	
+	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-	
-	@IBAction func unwindToAddWatchlist(_ segue: UIStoryboardSegue) {
-		guard let source = segue.source as? SelectMovieTableViewController else { return }
-	}
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+		return movies.count
+    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
