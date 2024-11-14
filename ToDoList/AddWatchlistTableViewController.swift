@@ -10,6 +10,8 @@ import UIKit
 class AddWatchlistTableViewController: UITableViewController {
 	@IBOutlet weak var chosenMoviePosterImageView: UIImageView!
 	
+	var selectedMovie: Movie?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,8 +24,9 @@ class AddWatchlistTableViewController: UITableViewController {
 	
 	@IBAction func unwindToAddWatchlist(_ segue: UIStoryboardSegue) {
 		guard let source = segue.source as? SelectMovieTableViewController else { return }
-		let selectedMovie = source.selectedMovie
-		print("Got Movie: \(selectedMovie?.title ?? "Error")")
+		
+		selectedMovie = source.selectedMovie
+		
 		chosenMoviePosterImageView.image = selectedMovie?.poster
 		tableView.reloadData()
 	}
