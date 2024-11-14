@@ -89,8 +89,8 @@ class ToDoTableViewController: UITableViewController {
 	
 	@IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
 		let alertController = UIAlertController(
-			title: "Choose add type",
-			message: "What do you want to add?",
+			title: "What do you want to add?",
+			message: nil,
 			preferredStyle: .actionSheet
 		)
 		
