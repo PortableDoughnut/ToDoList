@@ -36,18 +36,18 @@ extension AddWatchlistTableViewController {
 
 extension AddMovieTableViewController {
 	func addElement(title: String) {
-		toReturnMovie?.title = title
+		toReturnMovie.title = title
 	}
 	
 	func addElement(releaseDate: Int) {
-		toReturnMovie?.releaseYear = releaseDate
+		toReturnMovie.releaseYear = releaseDate
 	}
 	
 	func addElement(poster: UIImage) {
-		toReturnMovie?.poster = poster
+		toReturnMovie.poster = poster
 	}
 	
 	func addElement(description: String) {
-		toReturnMovie?.description = description
+		toReturnMovie.description = description
 	}
 }
