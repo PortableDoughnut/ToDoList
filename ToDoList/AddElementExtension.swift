@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension AddWatchlistTableViewController {
 	func addElement(movie: Movie) {
@@ -30,5 +31,23 @@ extension AddWatchlistTableViewController {
 	
 	func addElement(rating: Double) {
 		toReturnToDo?.rating = rating
+	}
+}
+
+extension AddMovieTableViewController {
+	func addElement(title: String) {
+		toReturnMovie?.title = title
+	}
+	
+	func addElement(releaseDate: Int) {
+		toReturnMovie?.releaseYear = releaseDate
+	}
+	
+	func addElement(poster: UIImage) {
+		toReturnMovie?.poster = poster
+	}
+	
+	func addElement(description: String) {
+		toReturnMovie?.description = description
 	}
 }

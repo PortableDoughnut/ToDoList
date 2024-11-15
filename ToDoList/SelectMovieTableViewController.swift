@@ -9,7 +9,7 @@ import UIKit
 
 class SelectMovieTableViewController: UITableViewController {
 	
-	var moviesArray: [Movie] = Movie.loadMovies().sorted()
+	var moviesArray: [Movie] = Movie.movies.sorted()
 	var selectedMovie: Movie?
 	
     override func viewDidLoad() {

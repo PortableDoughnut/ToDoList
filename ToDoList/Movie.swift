@@ -63,6 +63,8 @@ struct Movie {
 		self.poster = poster
 		self.releaseYear = releaseYear
 	}
+	
+	static var movies: [Movie] = Movie.loadMovies()
 }
 
 extension Movie: Equatable {

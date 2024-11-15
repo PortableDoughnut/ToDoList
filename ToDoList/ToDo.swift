@@ -81,7 +81,7 @@ struct ToDo {
 		
 		let toDoMovies: [ToDo] = moviesTitles.compactMap {
 			title in
-			guard let movie = Movie.loadMovies().first(where: {	$0.title == title	}),
+			guard let movie = Movie.movies.first(where: {	$0.title == title	}),
 				  let watchByDate = movieDates[title]
 			else {	return nil	}
 			
@@ -96,7 +96,7 @@ struct ToDo {
 			}
 		}
 		
-		guard Movie.loadMovies().count == movieDates.count else {
+		guard Movie.movies.count == movieDates.count else {
 			print("Error with movie count")
 			return []
 		}

@@ -6,11 +6,20 @@
 //
 
 import UIKit
+import Foundation
 
 class AddMovieTableViewController: UITableViewController {
-
+	@IBOutlet weak var movieDescriptionTextView: UITextView!
+	
+	var toReturnMovie: Movie?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		movieDescriptionTextView.layer.cornerRadius = 10
+		movieDescriptionTextView.layer.borderWidth = 1
+		movieDescriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
+		movieDescriptionTextView.clipsToBounds = true
     }
 
     /*
