@@ -198,22 +198,24 @@ extension ToDo: Equatable {
 
 extension ToDo: Comparable {
 	static func < (lhs: ToDo, rhs: ToDo) -> Bool {
-		if let lhsWatchByDate = lhs.watchByDate,
-		   let rhsWatchByDate = rhs.watchByDate	{
-			if lhsWatchByDate > Date() {
-				if let lhsWatchByDate = lhs.watchedOnDate, let rhsWatchByDate = rhs.watchedOnDate {
-					return lhsWatchByDate < rhsWatchByDate
-				} else {
-					return lhs.movie.title < rhs.movie.title
-				}
-			} else {
+		if lhs.hasWatched != rhs.hasWatched {
+			return !lhs.hasWatched && rhs.hasWatched
+		}
+		
+		if let lhsWatchByDate = lhs.watchByDate, let rhsWatchByDate = rhs.watchByDate {
+			if lhsWatchByDate != rhsWatchByDate {
 				return lhsWatchByDate < rhsWatchByDate
 			}
-		} else	{
-			return lhs.movie.title < rhs.movie.title
 		}
+
+		if let lhsWatchedOnDate = lhs.watchedOnDate, let rhsWatchedOnDate = rhs.watchedOnDate {
+			if lhsWatchedOnDate != rhsWatchedOnDate {
+				return lhsWatchedOnDate < rhsWatchedOnDate
+			}
+		}
+
+		return lhs.movie.title < rhs.movie.title
 	}
-	
 }
 
 var toDoList: [ToDo] = ToDo.loadToDos()!

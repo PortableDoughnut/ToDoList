@@ -22,6 +22,8 @@ class ToDoTableViewController: UITableViewController {
 			toDos = ToDo.loadToDos()!
 		}
 		
+		toDos.sort()
+		
 		///Regestering the table view cell
 		let movieToDoCell: UINib = .init(nibName: "ToDoTableViewCell", bundle: nil)
 		tableView.register(movieToDoCell, forCellReuseIdentifier: "ToDoMovieCell")
@@ -41,7 +43,9 @@ class ToDoTableViewController: UITableViewController {
 	
 	@IBAction func unwindToDoList(_ segue: UIStoryboardSegue) {
 		if let sourceViewController = segue.source as? AddWatchlistTableViewController {
-			
+			toDos.append(sourceViewController.toReturnToDo!)
+			toDos = toDos.sorted()
+			tableView.reloadData()
 		} else if let sourceViewController = segue.source as? AddMovieTableViewController {
 			
 		}
@@ -67,7 +71,7 @@ class ToDoTableViewController: UITableViewController {
     }
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		92
+		124
 	}
 
     /*

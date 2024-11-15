@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import Foundation
 
 class AddWatchlistTableViewController: UITableViewController {
+	@IBOutlet weak var ratingTableViewCell: UITableViewCell!
+	@IBOutlet weak var posterTableViewCell: UITableViewCell!
+	@IBOutlet weak var ratingLabel: UILabel!
+	@IBOutlet weak var watchStatusLabel: UILabel!
+	@IBOutlet weak var ratingSlider: UISlider!
 	@IBOutlet weak var chosenMoviePosterImageView: UIImageView!
 	
 	var toReturnToDo: ToDo?
@@ -26,6 +32,11 @@ Error could not initalize ToDo element:
 \(error.localizedDescription)
 """)
 		}
+		setSlider()
+		
+		posterTableViewCell.isHidden = true
+		ratingTableViewCell.isHidden = true
+		tableView.reloadData()
 	}
 	
 	@IBAction func unwindToAddWatchlist(_ segue: UIStoryboardSegue) {
@@ -37,34 +48,59 @@ Error could not initalize ToDo element:
 		tableView.reloadData()
 	}
 	
-	func addElement(movie: Movie) {
-		toReturnToDo?.movie = movie
+	@IBAction func cancelBarButtonItemPressed(_ sender: UIBarButtonItem) {
+		dismiss(animated: true, completion: nil)
 	}
 	
-	func addElement(watchByDate: Date) {
-		toReturnToDo?.watchByDate = watchByDate
+	@IBAction func watchStatusChanged(_ sender: UISegmentedControl) {
+		switch sender.selectedSegmentIndex {
+		case 0:
+			addElement(hasWatched: false)
+			watchStatusLabel.text = "Watch by"
+			ratingTableViewCell.isHidden = true
+		case 1:
+			addElement(hasWatched: true)
+			watchStatusLabel.text = "Watched on"
+			ratingTableViewCell.isHidden = false
+		default:
+			break
+		}
+		
+		tableView.reloadData()
 	}
 	
-	func addElement(hasWatched: Bool) {
-		toReturnToDo?.hasWatched = hasWatched
+	@IBAction func sliderValueChanged(_ sender: UISlider) {
+		let step: Float = 0.5
+		let roundedValue: Float = round(sender.value / step) * step
+		sender.value = roundedValue
+		ratingLabel.text = "\(sender.value) / 5 stars"
+		
+		addElement(rating: Double(sender.value))
 	}
 	
-	func addElement(watchedOnDate: Date) {
-		toReturnToDo!.watchedOnDate = watchedOnDate
+	@IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
+		switch toReturnToDo?.hasWatched {
+		case false:
+			addElement(watchByDate: sender.date)
+		case true:
+			addElement(watchedOnDate: sender.date)
+		default:
+			break
+		}
+	}
+	@IBAction func chooseMovieButtonPressed(_ sender: UIButton) {
+		posterTableViewCell.isHidden = false
+		tableView.reloadData()
 	}
 	
-	func addElement(review: String) {
-		toReturnToDo?.review = review
+	func setSlider() {
+		ratingSlider.minimumValue = 0
+		ratingSlider.maximumValue = 5
+		ratingSlider.value = 2.5
 	}
-	
-	func addElement(rating: Double) {
-		toReturnToDo?.rating = rating
-	}
-	
 	
 	// MARK: - Navigation
 	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		// Get the new view controller using segue.destination.
 		// Pass the selected object to the new view controller.

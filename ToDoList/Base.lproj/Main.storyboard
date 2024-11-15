@@ -71,6 +71,9 @@
                                                         <segment title="To Watch"/>
                                                         <segment title="Watched"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="watchStatusChanged:" destination="Aq7-ln-v2R" eventType="valueChanged" id="YdN-gX-YBe"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -83,7 +86,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="GSU-Lq-heF">
+                            <tableViewSection id="GSU-Lq-heF" userLabel="Standard Options">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8Aw-SX-nZO">
                                         <rect key="frame" x="0.0" y="171" width="393" height="44.333332061767578"/>
@@ -97,6 +100,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="filled" title="Choose Movie"/>
                                                     <connections>
+                                                        <action selector="chooseMovieButtonPressed:" destination="Aq7-ln-v2R" eventType="touchUpInside" id="5Zs-Qd-yBW"/>
                                                         <segue destination="vNW-Ya-XPS" kind="show" id="EUU-Lx-FTQ"/>
                                                     </connections>
                                                 </button>
@@ -168,6 +172,9 @@
                                                         </label>
                                                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="M2p-B5-Q6f">
                                                             <rect key="frame" x="0.0" y="24.333333333333329" width="361" height="50"/>
+                                                            <connections>
+                                                                <action selector="datePickerValueChanged:" destination="Aq7-ln-v2R" eventType="valueChanged" id="BIi-uh-wDe"/>
+                                                            </connections>
                                                         </datePicker>
                                                     </subviews>
                                                 </stackView>
@@ -182,6 +189,81 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="qqM-JQ-ZQd" userLabel="Standard Options">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="D87-5S-YeN">
+                                        <rect key="frame" x="0.0" y="683.66666793823242" width="393" height="38"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D87-5S-YeN" id="Lxj-1b-LkF">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="38"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tA2-72-xZF">
+                                                    <rect key="frame" x="16" y="4" width="361" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.5 / 5 stars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6R-fS-EHn">
+                                                            <rect key="frame" x="0.0" y="0.0" width="89.333333333333329" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cZd-yT-aW9">
+                                                            <rect key="frame" x="95.333333333333343" y="0.0" width="267.66666666666663" height="31"/>
+                                                            <connections>
+                                                                <action selector="sliderValueChanged:" destination="Aq7-ln-v2R" eventType="valueChanged" id="PCw-gE-FB8"/>
+                                                            </connections>
+                                                        </slider>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="tA2-72-xZF" secondAttribute="bottom" constant="4" id="8cE-y9-Q8c"/>
+                                                <constraint firstItem="tA2-72-xZF" firstAttribute="leading" secondItem="Lxj-1b-LkF" secondAttribute="leading" constant="16" id="Klk-Wi-Kte"/>
+                                                <constraint firstAttribute="trailing" secondItem="tA2-72-xZF" secondAttribute="trailing" constant="16" id="Uh3-4c-f0u"/>
+                                                <constraint firstItem="tA2-72-xZF" firstAttribute="top" secondItem="Lxj-1b-LkF" secondAttribute="top" constant="4" id="va8-sP-Kla"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SBk-ms-ufb">
+                                        <rect key="frame" x="0.0" y="721.66666793823242" width="393" height="8"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SBk-ms-ufb" id="v0h-8J-JWZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="8"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="k6p-aO-2ey">
+                                                    <rect key="frame" x="16" y="4" width="361" height="0.0"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="k6p-aO-2ey" firstAttribute="top" secondItem="v0h-8J-JWZ" secondAttribute="top" constant="4" id="BSU-F0-hVG"/>
+                                                <constraint firstAttribute="trailing" secondItem="k6p-aO-2ey" secondAttribute="trailing" constant="16" id="V8a-LX-TJI"/>
+                                                <constraint firstItem="k6p-aO-2ey" firstAttribute="leading" secondItem="v0h-8J-JWZ" secondAttribute="leading" constant="16" id="h1e-Ws-bld"/>
+                                                <constraint firstAttribute="bottom" secondItem="k6p-aO-2ey" secondAttribute="bottom" constant="4" id="xzx-ko-YZo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5fl-7O-uAJ">
+                                        <rect key="frame" x="0.0" y="729.66666793823242" width="393" height="8"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5fl-7O-uAJ" id="zlx-b4-lR3">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="8"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2Vr-U7-Ffj">
+                                                    <rect key="frame" x="16" y="4" width="361" height="0.0"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="2Vr-U7-Ffj" secondAttribute="trailing" constant="16" id="9dN-cH-u5a"/>
+                                                <constraint firstItem="2Vr-U7-Ffj" firstAttribute="top" secondItem="zlx-b4-lR3" secondAttribute="top" constant="4" id="HU1-aV-57G"/>
+                                                <constraint firstItem="2Vr-U7-Ffj" firstAttribute="leading" secondItem="zlx-b4-lR3" secondAttribute="leading" constant="16" id="YmF-Pj-HXU"/>
+                                                <constraint firstAttribute="bottom" secondItem="2Vr-U7-Ffj" secondAttribute="bottom" constant="4" id="cKV-MI-a7s"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="Aq7-ln-v2R" id="e8P-X8-YXs"/>
@@ -189,7 +271,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Watchlist Item" id="7sb-63-9cU">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ouz-Yx-ig6"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ouz-Yx-ig6">
+                            <connections>
+                                <action selector="cancelBarButtonItemPressed:" destination="Aq7-ln-v2R" id="ghn-u5-wd8"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="fEO-1K-VtP">
                             <connections>
                                 <segue destination="tC0-Xa-Lof" kind="unwind" unwindAction="unwindToDoList:" id="MmG-RE-896"/>
@@ -198,6 +284,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="chosenMoviePosterImageView" destination="0ea-D1-2hj" id="ZH0-uJ-8Io"/>
+                        <outlet property="posterTableViewCell" destination="Bg7-Qc-Sj4" id="Nxo-wv-l27"/>
+                        <outlet property="ratingLabel" destination="k6R-fS-EHn" id="Pn6-5Y-daE"/>
+                        <outlet property="ratingSlider" destination="cZd-yT-aW9" id="s92-VR-Tte"/>
+                        <outlet property="ratingTableViewCell" destination="D87-5S-YeN" id="91Q-J4-zrd"/>
+                        <outlet property="watchStatusLabel" destination="AeJ-vd-UZP" id="OcN-7g-T9t"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJY-Qi-52a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -486,9 +577,12 @@
             <point key="canvasLocation" x="2534" y="280"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.96862745100000003" green="0.098039215690000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" name="Accent Colour"/>
     <resources>
-        <image name="photo" catalog="system" width="128" height="96"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
+        <namedColor name="Accent Colour">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
