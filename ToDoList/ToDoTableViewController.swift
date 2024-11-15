@@ -47,7 +47,7 @@ class ToDoTableViewController: UITableViewController {
 			toDos = toDos.sorted()
 			tableView.reloadData()
 		} else if let sourceViewController = segue.source as? AddMovieTableViewController {
-			
+			tableView.reloadData()
 		}
 	}
 	

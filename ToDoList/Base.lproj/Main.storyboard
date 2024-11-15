@@ -536,14 +536,14 @@
                                         <color key="backgroundColor" name="Background"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="RPX-Z4-6RM" userLabel="Description">
-                                        <rect key="frame" x="0.0" y="477" width="393" height="160.33332824707031"/>
+                                        <rect key="frame" x="0.0" y="477" width="393" height="152.33332824707031"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RPX-Z4-6RM" id="C7F-17-1X7">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="160.33332824707031"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="152.33332824707031"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5zC-dx-pD3">
-                                                    <rect key="frame" x="16" y="4" width="361" height="152.33333333333334"/>
+                                                    <rect key="frame" x="16" y="4" width="361" height="144.33333333333334"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Synopsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeC-Mm-un4">
                                                             <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
@@ -552,10 +552,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d5u-Em-plf">
-                                                            <rect key="frame" x="0.0" y="24.333333333333329" width="361" height="127.99999999999999"/>
+                                                            <rect key="frame" x="0.0" y="24.333333333333329" width="361" height="119.99999999999999"/>
                                                             <color key="backgroundColor" name="Text View"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="128" id="fch-Ap-mzI"/>
+                                                                <constraint firstAttribute="height" constant="120" id="fch-Ap-mzI"/>
                                                             </constraints>
                                                             <color key="textColor" name="Text"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -583,7 +583,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Movie" id="uUi-0Y-QCT">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1ZQ-L9-rLv"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1ZQ-L9-rLv">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="SV1-q2-rMZ" id="6zr-Dz-xPn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="vuh-Rc-fhf">
                             <connections>
                                 <segue destination="dGi-w3-anW" kind="unwind" unwindAction="unwindToDoList:" id="Tnp-Xh-70s"/>
@@ -592,6 +596,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="movieDescriptionTextView" destination="d5u-Em-plf" id="QUn-OP-6hf"/>
+                        <outlet property="releaseYearPicker" destination="r7N-BN-bMw" id="1xu-g5-e9y"/>
                     </connections>
                 </tableViewController>
                 <exit id="dGi-w3-anW" userLabel="Exit" sceneMemberID="exit"/>
