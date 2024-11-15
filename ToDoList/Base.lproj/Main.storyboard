@@ -189,7 +189,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="qqM-JQ-ZQd" userLabel="Standard Options">
+                            <tableViewSection id="qqM-JQ-ZQd" userLabel="Has Watched Options">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="D87-5S-YeN">
                                         <rect key="frame" x="0.0" y="683.66666793823242" width="393" height="38"/>
@@ -225,40 +225,43 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SBk-ms-ufb">
-                                        <rect key="frame" x="0.0" y="721.66666793823242" width="393" height="8"/>
+                                        <rect key="frame" x="0.0" y="721.66666793823242" width="393" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SBk-ms-ufb" id="v0h-8J-JWZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="8"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="136"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="k6p-aO-2ey">
-                                                    <rect key="frame" x="16" y="4" width="361" height="0.0"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u3k-2r-y9n">
+                                                    <rect key="frame" x="16" y="4" width="361" height="128"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fS3-L4-Fv7">
+                                                            <rect key="frame" x="0.0" y="0.0" width="361" height="128"/>
+                                                            <subviews>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Placeholder Text" translatesAutoresizingMaskIntoConstraints="NO" id="9cN-9q-y6R">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="128"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="128" id="h2V-hE-fcY"/>
+                                                                    </constraints>
+                                                                    <color key="textColor" name="Text"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                </textView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="9cN-9q-y6R" secondAttribute="bottom" id="7qw-b8-1FM"/>
+                                                                <constraint firstAttribute="trailing" secondItem="9cN-9q-y6R" secondAttribute="trailing" id="CMO-Zd-326"/>
+                                                                <constraint firstItem="9cN-9q-y6R" firstAttribute="leading" secondItem="fS3-L4-Fv7" secondAttribute="leading" id="i8X-hI-ugl"/>
+                                                                <constraint firstItem="9cN-9q-y6R" firstAttribute="top" secondItem="fS3-L4-Fv7" secondAttribute="top" id="kSv-zD-CCL"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="k6p-aO-2ey" firstAttribute="top" secondItem="v0h-8J-JWZ" secondAttribute="top" constant="4" id="BSU-F0-hVG"/>
-                                                <constraint firstAttribute="trailing" secondItem="k6p-aO-2ey" secondAttribute="trailing" constant="16" id="V8a-LX-TJI"/>
-                                                <constraint firstItem="k6p-aO-2ey" firstAttribute="leading" secondItem="v0h-8J-JWZ" secondAttribute="leading" constant="16" id="h1e-Ws-bld"/>
-                                                <constraint firstAttribute="bottom" secondItem="k6p-aO-2ey" secondAttribute="bottom" constant="4" id="xzx-ko-YZo"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5fl-7O-uAJ">
-                                        <rect key="frame" x="0.0" y="729.66666793823242" width="393" height="8"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5fl-7O-uAJ" id="zlx-b4-lR3">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="8"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2Vr-U7-Ffj">
-                                                    <rect key="frame" x="16" y="4" width="361" height="0.0"/>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="2Vr-U7-Ffj" secondAttribute="trailing" constant="16" id="9dN-cH-u5a"/>
-                                                <constraint firstItem="2Vr-U7-Ffj" firstAttribute="top" secondItem="zlx-b4-lR3" secondAttribute="top" constant="4" id="HU1-aV-57G"/>
-                                                <constraint firstItem="2Vr-U7-Ffj" firstAttribute="leading" secondItem="zlx-b4-lR3" secondAttribute="leading" constant="16" id="YmF-Pj-HXU"/>
-                                                <constraint firstAttribute="bottom" secondItem="2Vr-U7-Ffj" secondAttribute="bottom" constant="4" id="cKV-MI-a7s"/>
+                                                <constraint firstItem="u3k-2r-y9n" firstAttribute="top" secondItem="v0h-8J-JWZ" secondAttribute="top" constant="4" id="C2D-Pn-MJi"/>
+                                                <constraint firstAttribute="trailing" secondItem="u3k-2r-y9n" secondAttribute="trailing" constant="16" id="Gi9-2T-emk"/>
+                                                <constraint firstAttribute="bottom" secondItem="u3k-2r-y9n" secondAttribute="bottom" constant="4" id="Qxk-wo-F9O"/>
+                                                <constraint firstItem="u3k-2r-y9n" firstAttribute="leading" secondItem="v0h-8J-JWZ" secondAttribute="leading" constant="16" id="YUJ-Pf-V7i"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -288,6 +291,8 @@
                         <outlet property="ratingLabel" destination="k6R-fS-EHn" id="Pn6-5Y-daE"/>
                         <outlet property="ratingSlider" destination="cZd-yT-aW9" id="s92-VR-Tte"/>
                         <outlet property="ratingTableViewCell" destination="D87-5S-YeN" id="91Q-J4-zrd"/>
+                        <outlet property="reviewTableViewCell" destination="SBk-ms-ufb" id="FNw-Ct-Nmh"/>
+                        <outlet property="reviewTextView" destination="9cN-9q-y6R" id="oBe-S3-rQ5"/>
                         <outlet property="watchStatusLabel" destination="AeJ-vd-UZP" id="OcN-7g-T9t"/>
                     </connections>
                 </tableViewController>

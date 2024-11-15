@@ -9,6 +9,8 @@ import UIKit
 import Foundation
 
 class AddWatchlistTableViewController: UITableViewController {
+	@IBOutlet weak var reviewTextView: UITextView!
+	@IBOutlet weak var reviewTableViewCell: UITableViewCell!
 	@IBOutlet weak var ratingTableViewCell: UITableViewCell!
 	@IBOutlet weak var posterTableViewCell: UITableViewCell!
 	@IBOutlet weak var ratingLabel: UILabel!
@@ -34,8 +36,17 @@ Error could not initalize ToDo element:
 		}
 		setSlider()
 		
+		reviewTextView.layer.cornerRadius = 10
+		reviewTextView.layer.borderWidth = 1
+		reviewTextView.layer.borderColor = UIColor.lightGray.cgColor
+		reviewTextView.clipsToBounds = true
+		
 		posterTableViewCell.isHidden = true
 		ratingTableViewCell.isHidden = true
+		reviewTableViewCell.isHidden = true
+		
+		tableView.beginUpdates()
+		tableView.endUpdates()
 		tableView.reloadData()
 	}
 	
@@ -58,15 +69,36 @@ Error could not initalize ToDo element:
 			addElement(hasWatched: false)
 			watchStatusLabel.text = "Watch by"
 			ratingTableViewCell.isHidden = true
+			reviewTableViewCell.isHidden = true
 		case 1:
 			addElement(hasWatched: true)
 			watchStatusLabel.text = "Watched on"
 			ratingTableViewCell.isHidden = false
+			reviewTableViewCell.isHidden = false
 		default:
 			break
 		}
 		
+		print("Review cell is \(reviewTableViewCell.isHidden ? "" : "not ") hidden")
+		tableView.beginUpdates()
+		tableView.endUpdates()
 		tableView.reloadData()
+	}
+	
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		let posterIndexPath: IndexPath = .init(row: 2, section: 2)
+		let ratingIndexPath: IndexPath = .init(row: 1, section: 3)
+		let reviewIndexPath: IndexPath = .init(row: 2, section: 3)
+		
+		if indexPath == ratingIndexPath {
+			return ratingTableViewCell.isHidden ? 0 : UITableView.automaticDimension
+		} else if indexPath == reviewIndexPath {
+			return reviewTableViewCell.isHidden ? 0 : UITableView.automaticDimension
+		} else if indexPath == posterIndexPath {
+			return posterTableViewCell.isHidden ? 0 : UITableView.automaticDimension
+		}
+		
+		return UITableView.automaticDimension
 	}
 	
 	@IBAction func sliderValueChanged(_ sender: UISlider) {
@@ -90,6 +122,9 @@ Error could not initalize ToDo element:
 	}
 	@IBAction func chooseMovieButtonPressed(_ sender: UIButton) {
 		posterTableViewCell.isHidden = false
+		
+		tableView.beginUpdates()
+		tableView.endUpdates()
 		tableView.reloadData()
 	}
 	
@@ -104,6 +139,11 @@ Error could not initalize ToDo element:
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		// Get the new view controller using segue.destination.
 		// Pass the selected object to the new view controller.
+		guard let hasWatchedStatus = toReturnToDo?.hasWatched else { return }
+		
+		if hasWatchedStatus {
+			addElement(review: reviewTextView.text)
+		}
 	}
 	
 }
