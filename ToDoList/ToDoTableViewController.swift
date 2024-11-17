@@ -55,6 +55,7 @@ class ToDoTableViewController: UITableViewController {
 		} else if segue.source is MovieEditTableViewController {
 		}
 		toDos.sort()
+		ToDo.saveToDos(toDos)
 		tableView.reloadData()
 	}
 	
@@ -85,6 +86,7 @@ class ToDoTableViewController: UITableViewController {
 	// Override to support rearranging the table view.
 	override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 		toDos.swapAt(fromIndexPath.row, to.row)
+		ToDo.saveToDos(toDos)
 		tableView.reloadData()
 	}
 	

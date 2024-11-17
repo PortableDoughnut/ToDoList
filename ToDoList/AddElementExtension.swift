@@ -48,6 +48,6 @@ extension AddMovieTableViewController {
 	}
 	
 	func addElement(description: String) {
-		toReturnMovie.description = description
+		toReturnMovie.synopsis = description
 	}
 }

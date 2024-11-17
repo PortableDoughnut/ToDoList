@@ -41,7 +41,7 @@ class EditToDoTableViewController: UITableViewController {
 				guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieDescriptionCell", for: indexPath) as? MovieDescriptionTableViewCell else {
 					return UITableViewCell()
 				}
-				cell.movieDesctiptionTextView.text = toDo.description
+				cell.movieDesctiptionTextView.text = toDo.synopsis
 				return cell
 			case 2:
 				guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as? ReviewTableViewCell

@@ -50,8 +50,9 @@ class AddMovieTableViewController: UITableViewController {
 		guard segue.destination is ToDoTableViewController else { return }
         // Pass the selected object to the new view controller.
 		
-		toReturnMovie.description = movieDescriptionTextView.text
+		toReturnMovie.synopsis = movieDescriptionTextView.text
 		Movie.movies.append(toReturnMovie)
+		Movie.saveMovies(Movie.movies)
     }
 	
 	@IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
