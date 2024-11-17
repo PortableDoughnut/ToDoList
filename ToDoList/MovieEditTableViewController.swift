@@ -35,10 +35,12 @@ class MovieEditTableViewController: UITableViewController {
 		ratingSlider.minimumValue = 0
 		ratingSlider.maximumValue = 5
 		ratingSlider.value = Float(toDo?.rating ?? 2.5)
+		ratingLabel.text = "\(ratingSlider.value) / 5 stars"
 		
 		datePicker.date = toDo?.watchedOnDate ?? Date()
 		
 		toDo?.hasWatched = true
+		toDo?.watchedOnDate = datePicker.date
 	}
 	
 	@IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
