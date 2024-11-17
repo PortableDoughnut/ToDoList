@@ -8,6 +8,8 @@
 import UIKit
 
 class DateEditTableViewCell: UITableViewCell {
+	@IBOutlet weak var datePicker: UIDatePicker!
+	
 
     override func awakeFromNib() {
         super.awakeFromNib()
